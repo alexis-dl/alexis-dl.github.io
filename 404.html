@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Loading…</title>
+  <script>
+    // GitHub Pages serves this file for any path that doesn't exist on disk.
+    // For deep links into an SPA (e.g. /portfolio/chess/play), load that app's
+    // index.html in place so its router can handle the URL.
+    (function () {
+      var root = '/portfolio/';
+      var apps = ['chess', 'pianoter'];
+      var path = location.pathname;
+      for (var i = 0; i < apps.length; i++) {
+        var prefix = root + apps[i] + '/';
+        if (path.indexOf(prefix) === 0) {
+          fetch(prefix + 'index.html')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+              document.open();
+              document.write(html);
+              document.close();
+            })
+            .catch(function () { location.replace(prefix); });
+          return;
+        }
+      }
+      location.replace(root);
+    })();
+  </script>
+</head>
+<body></body>
+</html>

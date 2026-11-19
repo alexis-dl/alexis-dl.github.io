@@ -48,7 +48,7 @@ jobs:
       - name: Assemble dist
         run: |
           mkdir -p dist
-          cp index.html dist/
+          cp index.html 404.html dist/
           cp -r chess/dist/chess/. dist/chess/
           # Angular 18+ outputs to browser/ subdirectory
           if [ -d pianoter/dist/pianoter/browser ]; then

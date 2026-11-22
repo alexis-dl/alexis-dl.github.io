@@ -31,19 +31,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # chess (Angular 22) needs Node 22.22+, pianoter (Angular 18) Node 22.x at most
+          node-version: 22
 
       - name: Build Chess
         working-directory: chess
         run: |
           npm ci
-          npx ng build --base-href /portfolio/chess/
+          npx ng build --base-href /chess/
 
       - name: Build Pianoter
         working-directory: pianoter
         run: |
           npm ci
-          npx ng build --base-href /portfolio/pianoter/
+          npx ng build --base-href /pianoter/
 
       - name: Assemble dist
         run: |

@@ -31,8 +31,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # chess (Angular 22) needs Node 22.22+, pianoter (Angular 18) Node 22.x at most
-          node-version: 22
+          # chess and pianoter are on Angular 22: Node 22.22+ or 24.15+
+          node-version: 24
 
       - name: Build Chess
         working-directory: chess

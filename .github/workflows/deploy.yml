@@ -38,7 +38,8 @@ jobs:
         working-directory: chess
         run: |
           npm ci
-          npx ng build --base-href /chess/
+          # github-pages: the deployed site's own favicon (an orange pawn)
+          npx ng build --configuration production,github-pages --base-href /chess/
 
       - name: Build Pianoter
         working-directory: pianoter
